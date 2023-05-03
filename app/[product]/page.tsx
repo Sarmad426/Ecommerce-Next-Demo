@@ -3,15 +3,8 @@ import { UpcomingData } from "@/public/upcomingData";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import Image from "next/image";
-type Data = {
-  name: string;
-  img: StaticImageData;
-  price: number;
-  bestSeller: boolean;
-  delivery: number;
-  id: number;
-  country?: string;
-};
+
+
 const Product = ({ params }: any) => {
   const { product } = params;
   const productDetail = UpcomingData.filter((e) => e.id === parseInt(product));
@@ -21,7 +14,10 @@ const Product = ({ params }: any) => {
         Back Home
       </Link>
       {productDetail.map((item) => (
-        <div key={item.id} className="xl:grid xl:grid-cols-2 xl:gap-32 px-12 2xl:grid 2xl:gap-8">
+        <div
+          key={item.id}
+          className="xl:grid xl:grid-cols-2 xl:gap-32 px-12 2xl:grid 2xl:gap-8"
+        >
           <Image
             src={item.img}
             width={500}
@@ -33,12 +29,15 @@ const Product = ({ params }: any) => {
           <div>
             <h2 className="my-32 mx-5 text-2xl text-start">{item.name}</h2>
             <div className="my-12 flex justify-evenly">
-            <span className="bg-green-500 text-white rounded px-3 py-1">
-              ${item.price}
-            </span>
-            <span>
-                Delivery Cost : <span className="font-bold text-2xl tracking-wide">${item.delivery}</span>
-            </span>
+              <span className="bg-green-500 text-white rounded px-3 py-1">
+                ${item.price}
+              </span>
+              <span>
+                Delivery Cost :{" "}
+                <span className="font-bold text-2xl tracking-wide">
+                  ${item.delivery}
+                </span>
+              </span>
             </div>
             {item.bestSeller && (
               <span
