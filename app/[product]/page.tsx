@@ -35,7 +35,9 @@ const Product = ({ params }: Params) => {
           className="w-full m-auto mt-16 md:w-1/2 lg:w-1/2 2xl:w-[80%] xl:w-[70%]"
         />
         <div>
-          <h2 className="my-32 mx-5 text-2xl text-start">{productDetail.name}</h2>
+          <h2 className="my-32 mx-5 text-2xl text-start">
+            {productDetail.name}
+          </h2>
           <div className="my-12 flex justify-evenly">
             <span className="bg-green-500 text-white rounded px-3 py-1">
               ${productDetail.price}
